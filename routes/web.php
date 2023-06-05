@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +19,13 @@ Route::get('/', fn () => redirect()->route('login'));
 
 Route::group(['middleware' => 'auth'], function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/profile', [UserController::class, 'profile'])->name('user.profil');
+    Route::post('/update-profile', [UserController::class, 'updateProfile'])->name('update-profil');
+    Route::get('/password', [UserController::class, 'password'])->name('user.password');
+    Route::post('/update-password', [UserController::class, 'updatePassword'])->name('update-password');
 });
+
+
 
 // Route::middleware([
 //     'auth:sanctum',
