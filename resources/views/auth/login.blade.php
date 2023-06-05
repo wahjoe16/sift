@@ -12,9 +12,9 @@
 
                     <form method="post" action="{{ route('login') }}">@csrf
                         <div class="form-group first">
-                            <label for="username">NIK/NPM</label>
-                            <input type="text" class="form-control @error('email') is-invalid @enderror" id="email" name="email">
-                            @error('email')
+                            <label for="username">EMAIL/NIK/NPM</label>
+                            <input type="text" class="form-control @error('auth') is-invalid @enderror" id="auth" name="auth" :value="old('auth'" required>
+                            @error('auth')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
