@@ -2,35 +2,6 @@
 
 @section('content')
 
-@if(Session::has('error_message'))
-<div class="alert alert-danger alert-dismissible fade show">
-    <strong>Error: </strong>{{ Session::get('error_message') }}
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-@endif
-
-@if(Session::has('success_message'))
-<div class="alert alert-success alert-dismissible fade show">
-    <strong>Sukses: </strong>{{ Session::get('success_message') }}
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-@endif
-
-@if($errors->any())
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
-    @foreach($errors->all() as $error)
-    <li>{{ $error }}</li>
-    @endforeach
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-@endif
-
 <section class="content">
     <div class="row">
         <div class="col-md-4 col-sm-6 col-xs-12">
@@ -50,7 +21,7 @@
                     <h3 class="box-title">Update Profile</h3>
                 </div>
                 <div class="box-body">
-                    <form class="form-horizontal" action="{{ route('update-profil') }}" method="post" enctype="multipart/form-data">@csrf
+                    <form class="form-horizontal" action="{{ route('update.profil') }}" method="post" enctype="multipart/form-data">@csrf
                         <div class="box-body">
                             <div class="form-group">
                                 <label for="nik" class="col-sm-2 control-label">NIK / NPM</label>
@@ -66,24 +37,8 @@
                                     <input type="text" class="form-control" name="nama" id="nama" placeholder="Nama" value="{{ auth()->user()->nama }}" required>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label for="superadmin" class="col-sm-2 control-label">Tipe User</label>
 
-                                <div class="col-sm-10">
-                                    <select name="level" id="level" class="form-control" required>
-                                        <option value="">Select</option>
-                                        @foreach ([
-                                        "1"=>"Admin",
-                                        "2"=>"Dosen",
-                                        "3"=>"Mahasiswa",
-                                        ] as $level => $levelLabel )
-                                        <option value="{{ $level }}" {{ old("level", auth()->user()->level)==$level ? "selected" : "" }}>{{ $levelLabel }}</option>
-                                        @endforeach
-                                    </select>
-                                </div>
-                            </div>
-
-                            @if (auth()->user()->level == 2 && 3)
+                            @if (auth()->user()->level == 2 || auth()->user()->level == 3)
                             <div class="form-group">
                                 <label for="program_studi" class="col-sm-2 control-label">Program Studi</label>
 
@@ -111,7 +66,7 @@
                                         <option value="">Select</option>
                                         @foreach ([
                                         "internal"=>"Internal",
-                                        "external"=>"External"
+                                        "eksternal"=>"Eksternal"
                                         ] as $tipeDosen => $tipeDosenLabel)
                                         <option value="{{ $tipeDosen }}" {{ old("tipe_dosen", auth()->user()->tipe_dosen)==$tipeDosen ? "selected" : "" }}>{{ $tipeDosenLabel }}</option>
                                         @endforeach
@@ -184,16 +139,17 @@
                                 <label for="email" class="col-sm-2 control-label">Email</label>
 
                                 <div class="col-sm-10">
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="Email" value="{{ auth()->user()->email }}">
+                                    <input type="email" class="form-control" name="email" id="email" placeholder="Email" value="{{ auth()->user()->email }}" required>
                                 </div>
                             </div>
                             <div class="form-group">
                                 <label for="telepon" class="col-sm-2 control-label">No Handphone</label>
 
                                 <div class="col-sm-10">
-                                    <input type="telepon" class="form-control" name="telepon" id="telepon" placeholder="telepon" value="{{ auth()->user()->telepon }}">
+                                    <input type="telepon" class="form-control" name="telepon" id="telepon" placeholder="telepon" value="{{ auth()->user()->telepon }}" required>
                                 </div>
                             </div>
+                            @if (auth()->user()->level == 1)
                             <div class="form-group">
                                 <label for="superadmin" class="col-sm-2 control-label">Status Super Admin</label>
 
@@ -209,11 +165,12 @@
                                     </select>
                                 </div>
                             </div>
+                            @endif
                             <div class="form-group">
                                 <label for="foto" class="col-sm-2 control-label">Foto</label>
 
                                 <div class="col-sm-10">
-                                    <input type="file" name="foto" class="dropify" id="foto">
+                                    <input type="file" name="foto" class="dropify" id="foto" required>
                                     @if(!empty(auth()->user()->foto))
                                     <a target="_blank" href="{{ url(auth()->user()->foto) }}">Lihat Foto</a>
                                     <input type="hidden" name="current_user_foto" value="{{ auth()->user()->foto }}">
@@ -224,7 +181,7 @@
                         <!-- /.box-body -->
                         <div class="box-footer">
                             <button type="submit" class="btn btn-flat btn-success">Simpan</button>
-                            <a href="{{ route('dashboard') }}" class="btn btn-flat btn-danger">Batal</a>
+                            <a href="{{ url('/dashboard') }}" class="btn btn-flat btn-danger">Batal</a>
                         </div>
                         <!-- /.box-footer -->
                     </form>

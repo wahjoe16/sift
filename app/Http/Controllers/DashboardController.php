@@ -10,4 +10,14 @@ class DashboardController extends Controller
     {
         return view('home');
     }
+
+    public function indexSidang()
+    {
+        return view('sidang');
+    }
+
+    public function indexData()
+    {
+        return view('data');
+    }
 }

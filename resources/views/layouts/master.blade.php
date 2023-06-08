@@ -29,6 +29,12 @@
     <!-- bootstrap wysihtml5 - text editor -->
     <link rel="stylesheet" href="{{ asset('AdminLTE-2/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css') }}">
 
+    <!-- DataTables -->
+    <link rel="stylesheet" href="{{ asset('AdminLTE-2/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css') }}">
+
+    <!-- dropify file input -->
+    <link rel="stylesheet" href="{{ url('AdminLTE-2/bower_components/dropify/dist/css/dropify.min.css')  }}">
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -113,6 +119,26 @@
     <script src="{{ asset('AdminLTE-2/dist/js/pages/dashboard.js') }}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{ asset('AdminLTE-2/dist/js/demo.js') }}"></script>
+
+    <!-- Validator -->
+    <script src="{{ asset('js/validator.min.js') }}"></script>
+
+    <!-- DataTables -->
+    <script src="{{ asset('AdminLTE-2/bower_components/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('AdminLTE-2/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js') }}"></script>
+
+    <!-- dropify file upload -->
+    <script src="{{ url('AdminLTE-2/bower_components/dropify/dist/js/dropify.min.js')  }}"></script>
+
+    <!-- sweet alert 2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- custom admin JS -->
+    <script src="{{ url('/js/custom.js') }}"></script>
+
+    @include('sweetalert::alert')
+
+    @stack('scripts_page')
 </body>
 
 </html>

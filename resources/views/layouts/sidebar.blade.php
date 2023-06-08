@@ -4,10 +4,10 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+                <img src="{{ asset(auth()->user()->foto) }}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-                <p>Alexander Pierce</p>
+                <p>{{ auth()->user()->nama }}</p>
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
@@ -26,37 +26,78 @@
         <ul class="sidebar-menu" data-widget="tree">
             <li class="header">Main Menu</li>
             <li>
-                <a href="#">
+                <a href="{{ url('/dashboard') }}">
                     <i class="fa fa-home"></i> <span>Dashboard</span>
                 </a>
             </li>
+            @if (auth()->user()->level == 1)
             <li class="header">Data Master</li>
             <li>
-                <a href="#">
+                <a href="{{ route('admin.index') }}">
                     <i class="fa fa-street-view"></i> <span>Admin</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ route('dosen.index') }}">
                     <i class="fa fa-user"></i> <span>Dosen</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ route('mahasiswa.index') }}">
                     <i class="fa fa-users"></i> <span>Mahasiswa</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ route('tahunajaran.index') }}">
                     <i class="fa fa-hourglass"></i> <span>Tahun Ajaran</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ route('semester.index') }}">
                     <i class="fa fa-hourglass-end"></i> <span>Semester</span>
                 </a>
             </li>
-            <li class="header">Seminar</li>
+            @endif
+            @if (auth()->user()->level == 3 && auth()->user()->program_studi == 'Teknik Pertambangan')
+            <li>
+                <a href="{{ route('seminar_tmb.index') }}">
+                    <i class="fa fa-upload"></i> <span>Kolokium Skripsi</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('sidang_tmb.index') }}">
+                    <i class="fa  fa-file-text"></i> <span>Sidang Skripsi</span>
+                </a>
+            </li>
+            @endif
+            @if (auth()->user()->level == 3 && auth()->user()->program_studi == 'Teknik Industri')
+            <li>
+                <a href="{{ route('seminar_ti.index') }}">
+                    <i class="fa fa-upload"></i> <span>Seminar Tugas Akhir</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('sidang_ti.index') }}">
+                    <i class="fa  fa-file-text"></i> <span>Sidang Tugas Akhir</span>
+                </a>
+            </li>
+            @endif
+
+            @if (auth()->user()->level == 3 && auth()->user()->program_studi == 'Perencanaan Wilayah dan Kota')
+            <li>
+                <a href="{{ route('seminar_pwk.index') }}">
+                    <i class="fa fa-upload"></i> <span>Sidang Pembahasan</span>
+                </a>
+            </li>
+            <li>
+                <a href="{{ route('sidang_pwk.index') }}">
+                    <i class="fa  fa-file-text"></i> <span>Sidang Terbuka</span>
+                </a>
+            </li>
+            @endif
+
+            @if (auth()->user()->level == 2 && auth()->user()->program_studi == 'Teknik Pertambangan')
+            <li class="header">Kolokium Skripsi</li>
             <li>
                 <a href="#">
                     <i class="fa fa-upload"></i> <span>Pengajuan</span>
@@ -67,7 +108,7 @@
                     <i class="fa  fa-file-text"></i> <span>Rekapitulasi</span>
                 </a>
             </li>
-            <li class="header">Sidang</li>
+            <li class="header">Sidang Skripsi</li>
             <li>
                 <a href="#">
                     <i class="fa fa-upload"></i> <span>Pengajuan</span>
@@ -78,6 +119,58 @@
                     <i class="fa  fa-file-text"></i> <span>Rekapitulasi</span>
                 </a>
             </li>
+            @endif
+
+            @if (auth()->user()->level == 2 && auth()->user()->program_studi == 'Teknik Industri')
+            <li class="header">Seminar Tugas Akhir</li>
+            <li>
+                <a href="">
+                    <i class="fa fa-upload"></i> <span>Pengajuan</span>
+                </a>
+            </li>
+            <li>
+                <a href="">
+                    <i class="fa  fa-file-text"></i> <span>Rekapitulasi</span>
+                </a>
+            </li>
+            <li class="header">Sidang Tugas Akhir</li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-upload"></i> <span>Pengajuan</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa  fa-file-text"></i> <span>Rekapitulasi</span>
+                </a>
+            </li>
+            @endif
+
+            @if (auth()->user()->level == 2 && auth()->user()->program_studi == 'Perencanaan Wilayah dan Kota')
+            <li class="header">Sidang Pembahasan</li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-upload"></i> <span>Pengajuan</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa  fa-file-text"></i> <span>Rekapitulasi</span>
+                </a>
+            </li>
+            <li class="header">Sidang Terbuka</li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-upload"></i> <span>Pengajuan</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa  fa-file-text"></i> <span>Rekapitulasi</span>
+                </a>
+            </li>
+            @endif
+
         </ul>
     </section>
     <!-- /.sidebar -->

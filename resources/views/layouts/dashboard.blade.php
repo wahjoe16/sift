@@ -76,6 +76,8 @@
     <!-- dropify file upload -->
     <script src="{{ url('AdminLTE-2/bower_components/dropify/dist/js/dropify.min.js')  }}"></script>
 
+    @include('sweetalert::alert')
+
     @stack('scripts_page')
 </body>
 

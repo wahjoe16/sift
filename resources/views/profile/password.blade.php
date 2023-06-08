@@ -2,36 +2,8 @@
 
 @section('content')
 
-@if(Session::has('error'))
-<div class="alert alert-danger alert-dismissible fade show">
-    <strong>Error: </strong>{{ Session::get('error') }}
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-@endif
-
-@if(Session::has('success'))
-<div class="alert alert-success alert-dismissible fade show">
-    <strong>Sukses: </strong>{{ Session::get('success') }}
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-@endif
-
-@if($errors->any())
-<div class="alert alert-danger alert-dismissible fade show" role="alert">
-    @foreach($errors->all() as $error)
-    <li>{{ $error }}</li>
-    @endforeach
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
-</div>
-@endif
-
 <section class="content">
+    @includeIf('layouts.alert')
     <div class="row">
         <div class="col-12">
             <div class="box box-widget">
