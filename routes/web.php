@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', fn () => redirect()->route('login'));
 
-Route::group(['middleware' => 'auth'], function () {
+Route::group(['middleware' => 'ceklevel:1,2,3'], function () {
 
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/profile', [UserController::class, 'profile'])->name('user.profil');
@@ -85,9 +85,18 @@ Route::group(['prefix' => '/dokumentasi_sidang', 'middleware' => 'ceklevel:3'], 
     Route::get('seminar/ti', [DaftarSeminarController::class, 'indexTi'])->name('seminar_ti.index');
     Route::get('daftar/seminar/ti', [DaftarSeminarController::class, 'daftarTi'])->name('seminar_ti.daftar');
     Route::post('store/seminar/ti', [DaftarSeminarController::class, 'storeTi'])->name('seminar_ti.store');
-    Route::post('show/seminar/ti', [DaftarSeminarController::class, 'showTi'])->name('seminar_ti.show');
+    Route::get('show/seminar/ti', [DaftarSeminarController::class, 'showTi'])->name('seminar_ti.show');
+
     Route::get('seminar/tmb', [DaftarSeminarController::class, 'indexTmb'])->name('seminar_tmb.index');
+    Route::get('daftar/seminar/tmb', [DaftarSeminarController::class, 'daftarTmb'])->name('seminar_tmb.daftar');
+    Route::post('store/seminar/tmb', [DaftarSeminarController::class, 'storeTmb'])->name('seminar_tmb.store');
+    Route::get('show/seminar/tmb', [DaftarSeminarController::class, 'showTmb'])->name('seminar_tmb.show');
+
     Route::get('seminar/pwk', [DaftarSeminarController::class, 'indexPwk'])->name('seminar_pwk.index');
+    Route::get('daftar/seminar/pwk', [DaftarSeminarController::class, 'daftarPwk'])->name('seminar_pwk.daftar');
+    Route::post('store/seminar/pwk', [DaftarSeminarController::class, 'storePwk'])->name('seminar_pwk.store');
+    Route::get('show/seminar/pwk', [DaftarSeminarController::class, 'showPwk'])->name('seminar_pwk.show');
+
     Route::get('sidang/ti', [DaftarSidangController::class, 'indexTi'])->name('sidang_ti.index');
     Route::get('sidang/tmb', [DaftarSidangController::class, 'indexTmb'])->name('sidang_tmb.index');
     Route::get('sidang/pwk', [DaftarSidangController::class, 'indexPwk'])->name('sidang_pwk.index');

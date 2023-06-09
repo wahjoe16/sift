@@ -11,10 +11,10 @@
     @includeIf('layouts.alert')
     <div class="row">
         <div class="col-sm-12 col-xs-12">
-            <form class="form-horizontal" action="{{ route('seminar_ti.store') }}" method="post" enctype="multipart/form-data">@csrf
+            <form class="form-horizontal" action="{{ route('seminar_tmb.store') }}" method="post" enctype="multipart/form-data">@csrf
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title">Informasi Seminar Tugas Akhir</h3>
+                        <h3 class="box-title">Informasi Kolokium Skripsi</h3>
                     </div>
 
                     <div class="row">
@@ -87,43 +87,67 @@
                             <div class="box-body">
                                 <div class="col-md-6 col-sm-12">
                                     <input type="file" name="syarat_1" class="dropify" id="syarat_1">
-                                    <p class="col-form-label text-center" for="syarat_1">Formulir pendaftaran Seminar terisi</p>
+                                    <p class="col-form-label text-center" for="syarat_1">Bukti pembayaran Kolokium Skripsi</p>
                                 </div>
                                 <div class="col-md-6 col-sm-12">
                                     <input type="file" name="syarat_2" class="dropify" id="syarat_2">
-                                    <p for="exampleInputEmail2" class="col-form-label text-center" for="syarat_2">Copy Berita Acara Pembimbingan / Kartu Bimbingan</p>
+                                    <p for="exampleInputEmail2" class="col-form-label text-center" for="syarat_2">Sertifikat TOEFL</p>
                                 </div>
                                 <div class="col-md-6 col-sm-12">
                                     <input type="file" name="syarat_3" class="dropify" id="syarat_3">
-                                    <p for="exampleInputEmail2" class="col-form-label text-center" for="syarat_3">Persetujuan Seminar dari Dosen Pembimbing</p>
+                                    <p for="exampleInputEmail2" class="col-form-label text-center" for="syarat_3">Formulir nilai bimbingan skripsi</p>
                                 </div>
                                 <div class="col-md-6 col-sm-12">
                                     <input type="file" name="syarat_4" class="dropify" id="syarat_4">
-                                    <p for="exampleInputEmail2" class="col-form-label text-center" for="syarat_4">Fotocopy Kwitansi Pembayaran Seminar dan Bimbingan Tugas Akhir</p>
+                                    <p for="exampleInputEmail2" class="col-form-label text-center" for="syarat_4">Formulir kemajuan bimbingan skripsi</p>
                                 </div>
                                 <div class="col-md-6 col-sm-12">
                                     <input type="file" name="syarat_5" class="dropify" id="syarat_5">
-                                    <p for="exampleInputEmail2" class="col-form-label text-center" for="syarat_5">Transkrip Nilai terakhir yang sudah lulus MK Semester 1-6 dan KP</p>
+                                    <p for="exampleInputEmail2" class="col-form-label text-center" for="syarat_5">Formulir persetujuan kolokium skripsi</p>
                                 </div>
                                 <div class="col-md-6 col-sm-12">
                                     <input type="file" name="syarat_6" class="dropify" id="syarat_6">
-                                    <p for="exampleInputEmail2" class="col-form-label text-center" for="syarat_6">Form Bebas Tunggakan / Pinjaman</p>
+                                    <p for="exampleInputEmail2" class="col-form-label text-center" for="syarat_6">Formulir kesediaan menghadiri kolokium skripsi</p>
                                 </div>
                                 <div class="col-md-6 col-sm-12">
                                     <input type="file" name="syarat_7" class="dropify" id="syarat_7">
-                                    <p for="exampleInputEmail2" class="col-form-label text-center" for="syarat_7">Print out bukti pengecekan Plagiarisme <= 25%</p>
+                                    <p for="exampleInputEmail2" class="col-form-label text-center" for="syarat_7">Pas foto ukuran 4 x 6 sebanyak 2 lembar</p>
                                 </div>
                                 <div class="col-md-6 col-sm-12">
                                     <input type="file" name="syarat_8" class="dropify" id="syarat_8">
-                                    <p for="exampleInputEmail2" class="col-form-label text-center" for="syarat_8">Bukti Monitoring Hafalan</p>
+                                    <p for="exampleInputEmail2" class="col-form-label text-center" for="syarat_8">Kartu Tanda Mahasiswa</p>
                                 </div>
                                 <div class="col-md-6 col-sm-12">
                                     <input type="file" name="syarat_9" class="dropify" id="syarat_9">
-                                    <p for="exampleInputEmail2" class="col-form-label text-center" for="syarat_9">Sertifikat SKKFT</p>
+                                    <p for="exampleInputEmail2" class="col-form-label text-center" for="syarat_9">Bukti pembayaran kuliah</p>
                                 </div>
                                 <div class="col-md-6 col-sm-12">
                                     <input type="file" name="syarat_10" class="dropify" id="syarat_10">
-                                    <p for="exampleInputEmail2" class="col-form-label text-center" for="syarat_10">Surat Penunjukan Pembimbing</p>
+                                    <p for="exampleInputEmail2" class="col-form-label text-center" for="syarat_10">Bukti perwalian</p>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <input type="file" name="syarat_11" class="dropify" id="syarat_11">
+                                    <p class="col-form-label text-center" for="syarat_11">Bukti bebas pinjaman perpustakaan</p>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <input type="file" name="syarat_12" class="dropify" id="syarat_12">
+                                    <p class="col-form-label text-center" for="syarat_12">Keterangan menghadiri kolokium skripsi (7 kali)</p>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <input type="file" name="syarat_13" class="dropify" id="syarat_13">
+                                    <p class="col-form-label text-center" for="syarat_13">Draft skripsi (PDF)</p>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <input type="file" name="syarat_14" class="dropify" id="syarat_14">
+                                    <p class="col-form-label text-center" for="syarat_14">Draft skripsi (DOCX)</p>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <input type="file" name="syarat_15" class="dropify" id="syarat_15">
+                                    <p class="col-form-label text-center" for="syarat_15">Sertifikat SKKFT</p>
+                                </div>
+                                <div class="col-md-6 col-sm-12">
+                                    <input type="file" name="syarat_16" class="dropify" id="syarat_16">
+                                    <p class="col-form-label text-center" for="syarat_16">Surat Penunjukan Pembimbing</p>
                                 </div>
                             </div>
                         </div>

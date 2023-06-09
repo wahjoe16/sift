@@ -10,7 +10,7 @@
                 <div class="box-header with-border">
                     <div class="btn-group">
                         @if (is_null($dataSeminar) || $lastData->status == 2)
-                        <a href="{{ route('seminar_ti.daftar') }}" class="btn btn-success btn-sm btn-flat"><i class="fa fa-upload"></i> Ajukan</a>
+                        <a href="{{ route('seminar_pwk.daftar') }}" class="btn btn-success btn-sm btn-flat"><i class="fa fa-upload"></i> Ajukan</a>
                         @else
                         <a href="#" class="btn btn-success btn-sm btn-flat disabled"><i class="fa fa-upload"></i> Ajukan</a>
                         @endif
@@ -42,7 +42,7 @@
                                 <td><span class="label bg-red">Ditolak</span></td>
                                 @endif
 
-                                <td><a href="{{ route('seminar_ti.show') }}"><i class="fa fa-search"></i></a></td>
+                                <td><a href="{{ route('seminar_pwk.show') }}"><i class="fa fa-search"></i></a></td>
                                 @endforeach
                             </tr>
                         </tbody>

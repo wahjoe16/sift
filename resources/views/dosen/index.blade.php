@@ -25,8 +25,8 @@
                                 <th>Foto Profil</th>
                                 <th>NIK</th>
                                 <th>Nama</th>
-                                <th>Email</th>
                                 <th>Program Studi</th>
+                                <th>Email</th>
                                 <th width="15%"><i class="fa fa-cogs"></i></th>
                             </thead>
                         </table>
