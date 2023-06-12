@@ -4,7 +4,7 @@
         <!-- Sidebar user panel -->
         <div class="user-panel">
             <div class="pull-left image">
-                <img src="{{ asset(auth()->user()->foto) }}" class="img-circle" alt="User Image">
+                <img src="{{ asset('/user/foto/' . auth()->user()->foto) }}" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
                 <p>{{ auth()->user()->nama }}</p>
@@ -96,15 +96,15 @@
             </li>
             @endif
 
-            @if (auth()->user()->level == 2 && auth()->user()->program_studi == 'Teknik Pertambangan')
+            @if (auth()->user()->level == 2 && auth()->user()->program_studi == 'Teknik Pertambangan' && auth()->user()->status_koordinator_skripsi == 1)
             <li class="header">Kolokium Skripsi</li>
             <li>
-                <a href="#">
+                <a href="{{ route('view-seminarTmb.index') }}">
                     <i class="fa fa-upload"></i> <span>Pengajuan</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ route('rekap-seminarTmb.index') }}">
                     <i class="fa  fa-file-text"></i> <span>Rekapitulasi</span>
                 </a>
             </li>
@@ -121,15 +121,15 @@
             </li>
             @endif
 
-            @if (auth()->user()->level == 2 && auth()->user()->program_studi == 'Teknik Industri')
+            @if (auth()->user()->level == 2 && auth()->user()->program_studi == 'Teknik Industri' && auth()->user()->status_koordinator_skripsi == 1)
             <li class="header">Seminar Tugas Akhir</li>
             <li>
-                <a href="">
+                <a href="{{ route('view-seminarTi.index') }}">
                     <i class="fa fa-upload"></i> <span>Pengajuan</span>
                 </a>
             </li>
             <li>
-                <a href="">
+                <a href="{{ route('rekap-seminarTi.index') }}">
                     <i class="fa  fa-file-text"></i> <span>Rekapitulasi</span>
                 </a>
             </li>
@@ -146,15 +146,15 @@
             </li>
             @endif
 
-            @if (auth()->user()->level == 2 && auth()->user()->program_studi == 'Perencanaan Wilayah dan Kota')
+            @if (auth()->user()->level == 2 && auth()->user()->program_studi == 'Perencanaan Wilayah dan Kota' && auth()->user()->status_koordinator_skripsi == 1)
             <li class="header">Sidang Pembahasan</li>
             <li>
-                <a href="#">
+                <a href="{{ route('view-seminarPwk.index') }}">
                     <i class="fa fa-upload"></i> <span>Pengajuan</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ route('rekap-seminarPwk.index') }}">
                     <i class="fa  fa-file-text"></i> <span>Rekapitulasi</span>
                 </a>
             </li>

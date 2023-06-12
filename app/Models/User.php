@@ -61,4 +61,13 @@ class User extends Authenticatable
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function getFotoPathAttribute()
+    {
+        if ($this->foto != '') {
+            return url('/user/foto/' . $this->foto);
+        } else {
+            return 'http://placehold.it/850x618';
+        }
+    }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ApproveSeminarController;
 use App\Http\Controllers\DaftarSeminarController;
 use App\Http\Controllers\DaftarSidangController;
 use App\Http\Controllers\DashboardController;
@@ -85,21 +86,44 @@ Route::group(['prefix' => '/dokumentasi_sidang', 'middleware' => 'ceklevel:3'], 
     Route::get('seminar/ti', [DaftarSeminarController::class, 'indexTi'])->name('seminar_ti.index');
     Route::get('daftar/seminar/ti', [DaftarSeminarController::class, 'daftarTi'])->name('seminar_ti.daftar');
     Route::post('store/seminar/ti', [DaftarSeminarController::class, 'storeTi'])->name('seminar_ti.store');
-    Route::get('show/seminar/ti', [DaftarSeminarController::class, 'showTi'])->name('seminar_ti.show');
+    Route::get('show/seminar/ti/{id}', [DaftarSeminarController::class, 'showTi'])->name('seminar_ti.show');
 
     Route::get('seminar/tmb', [DaftarSeminarController::class, 'indexTmb'])->name('seminar_tmb.index');
     Route::get('daftar/seminar/tmb', [DaftarSeminarController::class, 'daftarTmb'])->name('seminar_tmb.daftar');
     Route::post('store/seminar/tmb', [DaftarSeminarController::class, 'storeTmb'])->name('seminar_tmb.store');
-    Route::get('show/seminar/tmb', [DaftarSeminarController::class, 'showTmb'])->name('seminar_tmb.show');
+    Route::get('show/seminar/tmb/{id}', [DaftarSeminarController::class, 'showTmb'])->name('seminar_tmb.show');
 
     Route::get('seminar/pwk', [DaftarSeminarController::class, 'indexPwk'])->name('seminar_pwk.index');
     Route::get('daftar/seminar/pwk', [DaftarSeminarController::class, 'daftarPwk'])->name('seminar_pwk.daftar');
     Route::post('store/seminar/pwk', [DaftarSeminarController::class, 'storePwk'])->name('seminar_pwk.store');
-    Route::get('show/seminar/pwk', [DaftarSeminarController::class, 'showPwk'])->name('seminar_pwk.show');
+    Route::get('show/seminar/pwk/{id}', [DaftarSeminarController::class, 'showPwk'])->name('seminar_pwk.show');
 
     Route::get('sidang/ti', [DaftarSidangController::class, 'indexTi'])->name('sidang_ti.index');
     Route::get('sidang/tmb', [DaftarSidangController::class, 'indexTmb'])->name('sidang_tmb.index');
     Route::get('sidang/pwk', [DaftarSidangController::class, 'indexPwk'])->name('sidang_pwk.index');
+});
+
+Route::group(['prefix' => '/dokumentasi_sidang', 'middleware' => 'ceklevel:2'], function () {
+    Route::get('view-seminar/tmb', [ApproveSeminarController::class, 'viewTmb'])->name('view-seminarTmb.index');
+    Route::get('view-seminar/tmb/data', [ApproveSeminarController::class, 'dataTmb'])->name('view-seminarTmb.data');
+    Route::match(['get', 'post'], '/approval-seminar/tmb/{id}', [ApproveSeminarController::class, 'approveTmb'])->name('approve-seminarTmb.store');
+    Route::get('rekap-seminar/tmb', [ApproveSeminarController::class, 'rekapTmb'])->name('rekap-seminarTmb.index');
+    Route::get('rekap-seminar/tmb/data', [ApproveSeminarController::class, 'dataRekapTmb'])->name('rekap-seminarTmb.data');
+    Route::get('show-seminar/tmb/{id}', [ApproveSeminarController::class, 'showRekapTmb'])->name('rekap-seminarTmb.show');
+
+    Route::get('view-seminar/ti', [ApproveSeminarController::class, 'viewTi'])->name('view-seminarTi.index');
+    Route::get('view-seminar/ti/data', [ApproveSeminarController::class, 'dataTi'])->name('view-seminarTi.data');
+    Route::match(['get', 'post'], '/approval-seminar/ti/{id}', [ApproveSeminarController::class, 'approveTi'])->name('approve-seminarTi.store');
+    Route::get('rekap-seminar/ti', [ApproveSeminarController::class, 'rekapTi'])->name('rekap-seminarTi.index');
+    Route::get('rekap-seminar/ti/data', [ApproveSeminarController::class, 'dataRekapTi'])->name('rekap-seminarTi.data');
+    Route::get('show-seminar/ti/{id}', [ApproveSeminarController::class, 'showRekapTi'])->name('rekap-seminarTi.show');
+
+    Route::get('view-seminar/pwk', [ApproveSeminarController::class, 'viewPwk'])->name('view-seminarPwk.index');
+    Route::get('view-seminar/pwk/data', [ApproveSeminarController::class, 'dataPwk'])->name('view-seminarPwk.data');
+    Route::match(['get', 'post'], '/approval-seminar/pwk/{id}', [ApproveSeminarController::class, 'approvePwk'])->name('approve-seminarPwk.store');
+    Route::get('rekap-seminar/pwk', [ApproveSeminarController::class, 'rekapPwk'])->name('rekap-seminarPwk.index');
+    Route::get('rekap-seminar/pwk/data', [ApproveSeminarController::class, 'dataRekapPwk'])->name('rekap-seminarPwk.data');
+    Route::get('show-seminar/pwk/{id}', [ApproveSeminarController::class, 'showRekapPwk'])->name('rekap-seminarPwk.show');
 });
 
 

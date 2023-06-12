@@ -42,7 +42,7 @@
                                 <td><span class="label bg-red">Ditolak</span></td>
                                 @endif
 
-                                <td><a href="{{ route('seminar_ti.show') }}"><i class="fa fa-search"></i></a></td>
+                                <td><a href="{{ route('seminar_ti.show', $d->id) }}"><i class="fa fa-search"></i></a></td>
                                 @endforeach
                             </tr>
                         </tbody>

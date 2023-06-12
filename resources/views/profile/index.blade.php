@@ -8,7 +8,7 @@
             <div class="box">
                 <div class="box-body box-profile">
                     @if(!empty(auth()->user()->foto))
-                    <img class="profile-user-img img-responsive img-circle" src="{{ url(auth()->user()->foto ?? '') }}" alt="">
+                    <img class="profile-user-img img-responsive img-circle" src="{{ asset('/user/foto/' . auth()->user()->foto ?? '') }}" alt="">
                     @else
                     <img class="profile-user-img img-responsive img-circle" src="{{ asset('user/foto/user.png') }}" alt="" style="width: 300px important;">
                     @endif
@@ -172,7 +172,7 @@
                                 <div class="col-sm-10">
                                     <input type="file" name="foto" class="dropify" id="foto" required>
                                     @if(!empty(auth()->user()->foto))
-                                    <a target="_blank" href="{{ url(auth()->user()->foto) }}">Lihat Foto</a>
+                                    <a target="_blank" href="{{ asset('/user/foto/' . auth()->user()->foto ?? '') }}">Lihat Foto</a>
                                     <input type="hidden" name="current_user_foto" value="{{ auth()->user()->foto }}">
                                     @endif
                                 </div>

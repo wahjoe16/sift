@@ -34,9 +34,9 @@ class UserController extends Controller
         if ($request->hasFile('foto')) {
             $file = $request->file('foto');
             $nama = 'user-' . date('Y-m-dHis') . '.' . $file->getClientOriginalExtension();
-            $file->move(public_path('user/foto'), $nama);
+            $file->move(public_path('/user/foto'), $nama);
 
-            $user->foto = "/user/foto/$nama";
+            $user->foto = $nama;
         }
 
         $user->save();

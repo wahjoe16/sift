@@ -258,6 +258,12 @@ class DaftarSeminarController extends Controller
         }
     }
 
+    public function showTmb($id)
+    {
+        $data = DaftarSeminar::find($id);
+        return view('daftar_seminar.tmb.show', compact('data'));
+    }
+
     public function indexTi()
     {
         $dataMhs = auth()->user();
@@ -438,6 +444,12 @@ class DaftarSeminarController extends Controller
         }
     }
 
+    public function showTi($id)
+    {
+        $data = DaftarSeminar::find($id);
+        return view('daftar_seminar.ti.show', compact('data'));
+    }
+
     public function indexPwk()
     {
         $dataMhs = auth()->user();
@@ -610,5 +622,11 @@ class DaftarSeminarController extends Controller
 
             return redirect()->route('seminar_pwk.index')->with('success', 'Sukses mengajukan pendaftaran seminar tugas akhir!');
         }
+    }
+
+    public function showPwk($id)
+    {
+        $data = DaftarSeminar::find($id);
+        return view('daftar_seminar.pwk.show', compact('data'));
     }
 }
