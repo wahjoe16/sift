@@ -20,7 +20,7 @@ class ApproveSeminarController extends Controller
             ->leftJoin('semester', 'semester.id', 'daftar_seminar.semester_id')
             ->where([
                 'program_studi_id' => 'Teknik Pertambangan',
-                'status' => null,
+                'status' => 0,
             ])->get();
 
         return datatables()
@@ -41,12 +41,43 @@ class ApproveSeminarController extends Controller
     public function approveTmb(Request $request, $id)
     {
         $data = DaftarSeminar::with('mahasiswa')->find($id);
-        // dd($data);
+        $dataStatus = request([
+            'status_1',
+            'status_2',
+            'status_3',
+            'status_4',
+            'status_5',
+            'status_6',
+            'status_7',
+            'status_8',
+            'status_9',
+            'status_10',
+            'status_11',
+            'status_12',
+            'status_13',
+            'status_14',
+            'status_15',
+            'status_16',
+        ]);
 
         if ($request->isMethod('POST')) {
             $request->validate([
-                'status' => 'required',
-                'keterangan' => 'required_if:status,2',
+                'status_1' => 'required',
+                'status_2' => 'required',
+                'status_3' => 'required',
+                'status_4' => 'required',
+                'status_5' => 'required',
+                'status_6' => 'required',
+                'status_7' => 'required',
+                'status_8' => 'required',
+                'status_9' => 'required',
+                'status_10' => 'required',
+                'status_11' => 'required',
+                'status_12' => 'required',
+                'status_13' => 'required',
+                'status_14' => 'required',
+                'status_15' => 'required',
+                'status_16' => 'required',
                 'keterangan_1' => 'required_if:status_1,2',
                 'keterangan_2' => 'required_if:status_2,2',
                 'keterangan_3' => 'required_if:status_3,2',
@@ -64,8 +95,22 @@ class ApproveSeminarController extends Controller
                 'keterangan_15' => 'required_if:status_15,2',
                 'keterangan_16' => 'required_if:status_16,2',
             ], [
-                'keterangan.required_if' => 'Keterangan harus diisi',
-                'status.required' => 'Status approval harus diverifikasi',
+                'status_1.required' => 'Status approval harus diverifikasi',
+                'status_2.required' => 'Status approval harus diverifikasi',
+                'status_3.required' => 'Status approval harus diverifikasi',
+                'status_4.required' => 'Status approval harus diverifikasi',
+                'status_5.required' => 'Status approval harus diverifikasi',
+                'status_6.required' => 'Status approval harus diverifikasi',
+                'status_7.required' => 'Status approval harus diverifikasi',
+                'status_8.required' => 'Status approval harus diverifikasi',
+                'status_9.required' => 'Status approval harus diverifikasi',
+                'status_10.required' => 'Status approval harus diverifikasi',
+                'status_11.required' => 'Status approval harus diverifikasi',
+                'status_12.required' => 'Status approval harus diverifikasi',
+                'status_13.required' => 'Status approval harus diverifikasi',
+                'status_14.required' => 'Status approval harus diverifikasi',
+                'status_15.required' => 'Status approval harus diverifikasi',
+                'status_16.required' => 'Status approval harus diverifikasi',
                 'keterangan_1.required_if' => 'Keterangan harus diisi',
                 'keterangan_2.required_if' => 'Keterangan harus diisi',
                 'keterangan_3.required_if' => 'Keterangan harus diisi',
@@ -85,6 +130,13 @@ class ApproveSeminarController extends Controller
             ]);
 
             $data->fill($request->input());
+
+            if (!is_null($dataStatus == 2)) {
+                $data->status = 2;
+            } else {
+                $data->status = 1;
+            }
+
             $data->save();
 
             return redirect()->route('view-seminarTmb.index')->with('success', 'Pengajuan kolokium skripsi berhasil diapprove');
@@ -168,8 +220,17 @@ class ApproveSeminarController extends Controller
 
         if ($request->isMethod('POST')) {
             $request->validate([
-                'status' => 'required',
-                'keterangan' => 'required_if:status,2',
+                'status_1' => 'required',
+                'status_2' => 'required',
+                'status_3' => 'required',
+                'status_4' => 'required',
+                'status_5' => 'required',
+                'status_6' => 'required',
+                'status_7' => 'required',
+                'status_8' => 'required',
+                'status_9' => 'required',
+                'status_10' => 'required',
+
                 'keterangan_1' => 'required_if:status_1,2',
                 'keterangan_2' => 'required_if:status_2,2',
                 'keterangan_3' => 'required_if:status_3,2',
@@ -180,15 +241,19 @@ class ApproveSeminarController extends Controller
                 'keterangan_8' => 'required_if:status_8,2',
                 'keterangan_9' => 'required_if:status_9,2',
                 'keterangan_10' => 'required_if:status_10,2',
-                'keterangan_11' => 'required_if:status_11,2',
-                'keterangan_12' => 'required_if:status_12,2',
-                'keterangan_13' => 'required_if:status_13,2',
-                'keterangan_14' => 'required_if:status_14,2',
-                'keterangan_15' => 'required_if:status_15,2',
-                'keterangan_16' => 'required_if:status_16,2',
+
             ], [
-                'keterangan.required_if' => 'Keterangan harus diisi',
-                'status.required' => 'Status approval harus diverifikasi',
+                'status_1.required' => 'Status approval harus diverifikasi',
+                'status_2.required' => 'Status approval harus diverifikasi',
+                'status_3.required' => 'Status approval harus diverifikasi',
+                'status_4.required' => 'Status approval harus diverifikasi',
+                'status_5.required' => 'Status approval harus diverifikasi',
+                'status_6.required' => 'Status approval harus diverifikasi',
+                'status_7.required' => 'Status approval harus diverifikasi',
+                'status_8.required' => 'Status approval harus diverifikasi',
+                'status_9.required' => 'Status approval harus diverifikasi',
+                'status_10.required' => 'Status approval harus diverifikasi',
+
                 'keterangan_1.required_if' => 'Keterangan harus diisi',
                 'keterangan_2.required_if' => 'Keterangan harus diisi',
                 'keterangan_3.required_if' => 'Keterangan harus diisi',
@@ -199,12 +264,7 @@ class ApproveSeminarController extends Controller
                 'keterangan_8.required_if' => 'Keterangan harus diisi',
                 'keterangan_9.required_if' => 'Keterangan harus diisi',
                 'keterangan_10.required_if' => 'Keterangan harus diisi',
-                'keterangan_11.required_if' => 'Keterangan harus diisi',
-                'keterangan_12.required_if' => 'Keterangan harus diisi',
-                'keterangan_13.required_if' => 'Keterangan harus diisi',
-                'keterangan_14.required_if' => 'Keterangan harus diisi',
-                'keterangan_15.required_if' => 'Keterangan harus diisi',
-                'keterangan_16.required_if' => 'Keterangan harus diisi',
+
             ]);
 
             $data->fill($request->input());
@@ -291,8 +351,17 @@ class ApproveSeminarController extends Controller
 
         if ($request->isMethod('POST')) {
             $request->validate([
-                'status' => 'required',
-                'keterangan' => 'required_if:status,2',
+                'status_1' => 'required',
+                'status_2' => 'required',
+                'status_3' => 'required',
+                'status_4' => 'required',
+                'status_5' => 'required',
+                'status_6' => 'required',
+                'status_7' => 'required',
+                'status_8' => 'required',
+                'status_9' => 'required',
+                'status_10' => 'required',
+
                 'keterangan_1' => 'required_if:status_1,2',
                 'keterangan_2' => 'required_if:status_2,2',
                 'keterangan_3' => 'required_if:status_3,2',
@@ -303,15 +372,19 @@ class ApproveSeminarController extends Controller
                 'keterangan_8' => 'required_if:status_8,2',
                 'keterangan_9' => 'required_if:status_9,2',
                 'keterangan_10' => 'required_if:status_10,2',
-                'keterangan_11' => 'required_if:status_11,2',
-                'keterangan_12' => 'required_if:status_12,2',
-                'keterangan_13' => 'required_if:status_13,2',
-                'keterangan_14' => 'required_if:status_14,2',
-                'keterangan_15' => 'required_if:status_15,2',
-                'keterangan_16' => 'required_if:status_16,2',
+
             ], [
-                'keterangan.required_if' => 'Keterangan harus diisi',
-                'status.required' => 'Status approval harus diverifikasi',
+                'status_1.required' => 'Status approval harus diverifikasi',
+                'status_2.required' => 'Status approval harus diverifikasi',
+                'status_3.required' => 'Status approval harus diverifikasi',
+                'status_4.required' => 'Status approval harus diverifikasi',
+                'status_5.required' => 'Status approval harus diverifikasi',
+                'status_6.required' => 'Status approval harus diverifikasi',
+                'status_7.required' => 'Status approval harus diverifikasi',
+                'status_8.required' => 'Status approval harus diverifikasi',
+                'status_9.required' => 'Status approval harus diverifikasi',
+                'status_10.required' => 'Status approval harus diverifikasi',
+
                 'keterangan_1.required_if' => 'Keterangan harus diisi',
                 'keterangan_2.required_if' => 'Keterangan harus diisi',
                 'keterangan_3.required_if' => 'Keterangan harus diisi',
@@ -322,12 +395,7 @@ class ApproveSeminarController extends Controller
                 'keterangan_8.required_if' => 'Keterangan harus diisi',
                 'keterangan_9.required_if' => 'Keterangan harus diisi',
                 'keterangan_10.required_if' => 'Keterangan harus diisi',
-                'keterangan_11.required_if' => 'Keterangan harus diisi',
-                'keterangan_12.required_if' => 'Keterangan harus diisi',
-                'keterangan_13.required_if' => 'Keterangan harus diisi',
-                'keterangan_14.required_if' => 'Keterangan harus diisi',
-                'keterangan_15.required_if' => 'Keterangan harus diisi',
-                'keterangan_16.required_if' => 'Keterangan harus diisi',
+
             ]);
 
             $data->fill($request->input());

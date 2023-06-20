@@ -17,7 +17,7 @@
     <!-- Style -->
     <link rel="stylesheet" href="{{ url('login_form/css/style.css') }}">
 
-    <title>Satuan Kegiatan Dosen</title>
+    <title>Sistem Informasi Fakultas Teknik | UNISBA</title>
 </head>
 
 <body>

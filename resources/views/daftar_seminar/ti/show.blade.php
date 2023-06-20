@@ -16,7 +16,7 @@
                 <div class="box-body box-profile">
                     <ul class="list-group list-group-unbordered">
                         <li class="list-group-item">
-                            <p>Tahun Ajaran</p>
+                            <p>Tahun Akademik</p>
                             <b>{{ $data->tahun_ajaran->tahun_ajaran }}</b>
                         </li>
                         <li class="list-group-item">

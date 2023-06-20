@@ -21,7 +21,7 @@
                         <div class="box-body">
                             <div class="col-md-6 col-sm-12">
                                 <div class="form-group">
-                                    <label class="col-sm-5 col-form-label" for="tahun_ajaran_id">Tahun Ajaran</label>
+                                    <label class="col-sm-5 col-form-label" for="tahun_ajaran_id">Tahun Akademik</label>
                                     <div class="col-sm-7">
                                         <select name="tahun_ajaran_id" id="tahun_ajaran_id" class="form-control select2">
                                             <option value="">Pilih</option>
@@ -77,6 +77,15 @@
                         </div>
                         <!-- /.box-body -->
                     </div>
+                </div>
+                <div class="alert alert-warning alert-dismissible">
+                    <h4><i class="icon fa fa-warning"></i> Informasi Penting!</h4>
+                    Sebelum melakukan upload file persyaratan, mahasiswa diharuskan memperhatikan informasi berikut.
+                    <ol>
+                        <li>Semua file harus mempunyai format PDF kecuali jika ada draft skripsi yang diharuskan mempunyai format DOC/DOCX.</li>
+                        <li>Semua file yang diupload maksimal berukuran 1MB kecuali file draft skripsi(jika ada).</li>
+                        <li>Jika diharuskan upload file transkrip nilai, file tersebut harus sudah diketahui sekretariat program studi.</li>
+                    </ol>
                 </div>
                 <div class="box box-primary">
                     <div class="box-header with-border">

@@ -21,7 +21,7 @@
                         <p class="text-muted text-center">{{ $data->mahasiswa->nik }}</p>
                         <ul class="list-group list-group-unbordered">
                             <li class="list-group-item">
-                                <p>Tahun Ajaran</p>
+                                <p>Tahun Akademik</p>
                                 <b>{{ $data->tahun_ajaran->tahun_ajaran }}</b>
                             </li>
                             <li class="list-group-item">
@@ -212,36 +212,13 @@
             </div>
             <div class="col-md-12">
                 <div class="box box-primary">
-                    <div class="box-header with-border">
-                        <h3 class="box-title">Status Approval</h3>
-                    </div>
-                    <div class="box-body">
-                        <div class="form-group">
-                            <label class="col-sm-2 col-form-label">Approval</label>
-                            <div class="col-sm-10">
-                                <select class="form-control @error('status') is-invalid @enderror select2 dynamic" style="width: 100%;" name="status" id="status">
-                                    <option value="" disabled selected>Pilih</option>
-                                    <option value="2" @if($data->status==2) selected @endif>Ditolak</option>
-                                    <option value="1" @if($data->status==1) selected @endif>Diterima</option>
-                                </select>
-                                @error('status') <span class="text-red">{{$message}}</span> @enderror
-                            </div>
-                        </div><br>
-                        <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-2 col-form-label">Keterangan</label>
-                            <div class="col-sm-10">
-                                <textarea name="keterangan" class="form-control @error('keterangan') is-invalid @enderror" rows="3" placeholder="Masukan Keterangan"></textarea>
-                                @error('keterangan') <span class="text-red">{{$message}}</span> @enderror
-                            </div>
-                        </div><br>
-                        <div class="form-group">
-                            <div class="col-sm-2">
+                    <div class="form-group">
+                        <div class="col-sm-2">
 
-                            </div>
-                            <div class="col-sm-10">
-                                <button type="submit" class="btn btn-primary mr-2">Simpan</button>
-                                <a href="{{ route('view-seminarTi.index') }}" class="btn btn-light">Batal</a>
-                            </div>
+                        </div>
+                        <div class="col-sm-10">
+                            <button type="submit" class="btn btn-primary mr-2">Simpan</button>
+                            <a href="{{ route('view-seminarTi.index') }}" class="btn btn-light">Batal</a>
                         </div>
                     </div>
                 </div>

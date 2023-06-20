@@ -16,7 +16,7 @@
                                 <th>No</th>
                                 <th>NPM</th>
                                 <th>Nama</th>
-                                <th>Tahun Ajaran</th>
+                                <th>Tahun Akademik</th>
                                 <th>Semester</th>
                                 <th>Tanggal Pengajuan</th>
                                 <th width="15%"><i class="fa fa-cogs"></i> Aksi</th>

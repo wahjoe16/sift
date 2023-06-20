@@ -11,6 +11,8 @@
     <link rel="stylesheet" href="{{ asset('AdminLTE-2/bower_components/bootstrap/dist/css/bootstrap.min.css') }}">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('AdminLTE-2/bower_components/font-awesome/css/font-awesome.min.css') }}">
+    <!-- iCheck for checkboxes and radio inputs -->
+    <link rel="stylesheet" href="{{ asset('AdminLTE-2/plugins/iCheck/all.css') }}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="{{ asset('AdminLTE-2/bower_components/Ionicons/css/ionicons.min.css') }}">
     <!-- Theme style -->
@@ -103,6 +105,8 @@
     <script src="{{ asset('AdminLTE-2/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js') }}"></script>
     <!-- Slimscroll -->
     <script src="{{ asset('AdminLTE-2/bower_components/jquery-slimscroll/jquery.slimscroll.min.js') }}"></script>
+    <!-- iCheck 1.0.1 -->
+    <script src="{{ asset('AdminLTE-2/plugins/iCheck/icheck.min.js') }}"></script>
     <!-- FastClick -->
     <script src="{{ asset('AdminLTE-2/bower_components/fastclick/lib/fastclick.js') }}"></script>
     <!-- AdminLTE App -->
@@ -129,6 +133,24 @@
     <script src="{{ url('/js/custom.js') }}"></script>
 
     @include('sweetalert::alert')
+
+    <script>
+        //iCheck for checkbox and radio inputs
+        $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+            checkboxClass: 'icheckbox_minimal-blue',
+            radioClass: 'iradio_minimal-blue'
+        })
+        //Red color scheme for iCheck
+        $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+            checkboxClass: 'icheckbox_minimal-red',
+            radioClass: 'iradio_minimal-red'
+        })
+        //Flat red color scheme for iCheck
+        $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
+            checkboxClass: 'icheckbox_flat-green',
+            radioClass: 'iradio_flat-green'
+        })
+    </script>
 
     @stack('scripts_page')
 </body>

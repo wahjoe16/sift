@@ -16,7 +16,7 @@
                 <div class="box-body box-profile">
                     <ul class="list-group list-group-unbordered">
                         <li class="list-group-item">
-                            <p>Tahun Ajaran</p>
+                            <p>Tahun Akademik</p>
                             <b>{{ $data->tahun_ajaran->tahun_ajaran }}</b>
                         </li>
                         <li class="list-group-item">
@@ -87,6 +87,8 @@
                                     <span class="label bg-green">Diterima</span>
                                     @elseif($data->status_1 == 2)
                                     <span class="label bg-red">Ditolak</span>
+                                    @else
+                                    <span class="label bg-yellow text-black">Menunggu</span>
                                     @endif
                                 </td>
                                 <td>
@@ -107,6 +109,8 @@
                                     <span class="label bg-green">Diterima</span>
                                     @elseif($data->status_2 == 2)
                                     <span class="label bg-red">Ditolak</span>
+                                    @else
+                                    <span class="label bg-yellow text-black">Menunggu</span>
                                     @endif
                                 </td>
                                 <td>
@@ -127,6 +131,8 @@
                                     <span class="label bg-green">Diterima</span>
                                     @elseif($data->status_3 == 2)
                                     <span class="label bg-red">Ditolak</span>
+                                    @else
+                                    <span class="label bg-yellow text-black">Menunggu</span>
                                     @endif
                                 </td>
                                 <td>
@@ -147,6 +153,8 @@
                                     <span class="label bg-green">Diterima</span>
                                     @elseif($data->status_4 == 2)
                                     <span class="label bg-red">Ditolak</span>
+                                    @else
+                                    <span class="label bg-yellow text-black">Menunggu</span>
                                     @endif
                                 </td>
                                 <td>
@@ -167,6 +175,8 @@
                                     <span class="label bg-green">Diterima</span>
                                     @elseif($data->status_5 == 2)
                                     <span class="label bg-red">Ditolak</span>
+                                    @else
+                                    <span class="label bg-yellow text-black">Menunggu</span>
                                     @endif
                                 </td>
                                 <td>
@@ -187,6 +197,8 @@
                                     <span class="label bg-green">Diterima</span>
                                     @elseif($data->status_6 == 2)
                                     <span class="label bg-red">Ditolak</span>
+                                    @else
+                                    <span class="label bg-yellow text-black">Menunggu</span>
                                     @endif
                                 </td>
                                 <td>
@@ -207,6 +219,8 @@
                                     <span class="label bg-green">Diterima</span>
                                     @elseif($data->status_7 == 2)
                                     <span class="label bg-red">Ditolak</span>
+                                    @else
+                                    <span class="label bg-yellow text-black">Menunggu</span>
                                     @endif
                                 </td>
                                 <td>
@@ -227,6 +241,8 @@
                                     <span class="label bg-green">Diterima</span>
                                     @elseif($data->status_8 == 2)
                                     <span class="label bg-red">Ditolak</span>
+                                    @else
+                                    <span class="label bg-yellow text-black">Menunggu</span>
                                     @endif
                                 </td>
                                 <td>
@@ -247,6 +263,8 @@
                                     <span class="label bg-green">Diterima</span>
                                     @elseif($data->status_9 == 2)
                                     <span class="label bg-red">Ditolak</span>
+                                    @else
+                                    <span class="label bg-yellow text-black">Menunggu</span>
                                     @endif
                                 </td>
                                 <td>
@@ -267,6 +285,8 @@
                                     <span class="label bg-green">Diterima</span>
                                     @elseif($data->status_10 == 2)
                                     <span class="label bg-red">Ditolak</span>
+                                    @else
+                                    <span class="label bg-yellow text-black">Menunggu</span>
                                     @endif
                                 </td>
                                 <td>
@@ -287,6 +307,8 @@
                                     <span class="label bg-green">Diterima</span>
                                     @elseif($data->status_11 == 2)
                                     <span class="label bg-red">Ditolak</span>
+                                    @else
+                                    <span class="label bg-yellow text-black">Menunggu</span>
                                     @endif
                                 </td>
                                 <td>
@@ -307,6 +329,8 @@
                                     <span class="label bg-green">Diterima</span>
                                     @elseif($data->status_12 == 2)
                                     <span class="label bg-red">Ditolak</span>
+                                    @else
+                                    <span class="label bg-yellow text-black">Menunggu</span>
                                     @endif
                                 </td>
                                 <td>
@@ -327,6 +351,8 @@
                                     <span class="label bg-green">Diterima</span>
                                     @elseif($data->status_13 == 2)
                                     <span class="label bg-red">Ditolak</span>
+                                    @else
+                                    <span class="label bg-yellow text-black">Menunggu</span>
                                     @endif
                                 </td>
                                 <td>
@@ -347,6 +373,8 @@
                                     <span class="label bg-green">Diterima</span>
                                     @elseif($data->status_14 == 2)
                                     <span class="label bg-red">Ditolak</span>
+                                    @else
+                                    <span class="label bg-yellow text-black">Menunggu</span>
                                     @endif
                                 </td>
                                 <td>
@@ -367,6 +395,8 @@
                                     <span class="label bg-green">Diterima</span>
                                     @elseif($data->status_15 == 2)
                                     <span class="label bg-red">Ditolak</span>
+                                    @else
+                                    <span class="label bg-yellow text-black">Menunggu</span>
                                     @endif
                                 </td>
                                 <td>
@@ -387,6 +417,8 @@
                                     <span class="label bg-green">Diterima</span>
                                     @elseif($data->status_16 == 2)
                                     <span class="label bg-red">Ditolak</span>
+                                    @else
+                                    <span class="label bg-yellow text-black">Menunggu</span>
                                     @endif
                                 </td>
                                 <td>
@@ -400,12 +432,19 @@
                         </tbody>
                     </table>
                 </div>
+                @if ($data->status == 2)
+                <div class="box-footer with-border">
+                    <div class="btn-group">
+                        <a href="{{ route('seminar_tmb.edit', $data->id) }}" class="btn btn-warning btn-flat">Perbaiki</a>
+                    </div>
+                </div>
+                @endif
             </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-6">
-            <a href="{{ route('seminar_tmb.index') }}" class="btn btn-primary">Kembali</a>
+            <a href="{{ route('seminar_tmb.index') }}" class="btn btn-primary btn-flat">Kembali</a>
         </div>
     </div>
 </section>

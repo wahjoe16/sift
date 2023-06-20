@@ -9,17 +9,18 @@
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <div class="btn-group">
-                        @if (is_null($dataSeminar) || $lastData->status == 2)
+                        @if (is_null($dataSeminar))
                         <a href="{{ route('seminar_tmb.daftar') }}" class="btn btn-success btn-sm btn-flat"><i class="fa fa-upload"></i> Ajukan</a>
                         @else
                         <a href="#" class="btn btn-success btn-sm btn-flat disabled"><i class="fa fa-upload"></i> Ajukan</a>
                         @endif
+
                     </div>
                 </div>
                 <div class="box-body table-responsive">
                     <table class="table table-striped table-bordered table-seminar">
                         <thead>
-                            <th>Tahun Ajaran</th>
+                            <th>Tahun Akademik</th>
                             <th>Semester</th>
                             <th>Dosen Pembimbing 1</th>
                             <th>Dosen Pembimbing 2</th>
@@ -37,7 +38,7 @@
                                 <td>{{ tanggal_indonesia($d->created_at, false) }}</td>
 
                                 @if ($d->status == 0)
-                                <td><span class="label bg-yellow">Menunggu</span></td>
+                                <td><span class="label bg-yellow text-black">Menunggu</span></td>
                                 @elseif ($d->status == 1)
                                 <td><span class="label bg-green">Diterima</span></td>
                                 @elseif ($d->status == 2)

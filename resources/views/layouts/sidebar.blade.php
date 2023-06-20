@@ -110,12 +110,12 @@
             </li>
             <li class="header">Sidang Skripsi</li>
             <li>
-                <a href="#">
+                <a href="{{ route('view-sidangTmb.index') }}">
                     <i class="fa fa-upload"></i> <span>Pengajuan</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ route('rekap-sidangTmb.index') }}">
                     <i class="fa  fa-file-text"></i> <span>Rekapitulasi</span>
                 </a>
             </li>
@@ -135,12 +135,12 @@
             </li>
             <li class="header">Sidang Tugas Akhir</li>
             <li>
-                <a href="#">
+                <a href="{{ route('rekap-sidangTi.index') }}">
                     <i class="fa fa-upload"></i> <span>Pengajuan</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ route('rekap-sidangTi.index') }}">
                     <i class="fa  fa-file-text"></i> <span>Rekapitulasi</span>
                 </a>
             </li>
@@ -160,12 +160,12 @@
             </li>
             <li class="header">Sidang Terbuka</li>
             <li>
-                <a href="#">
+                <a href="{{ route('rekap-sidangPwk.index') }}">
                     <i class="fa fa-upload"></i> <span>Pengajuan</span>
                 </a>
             </li>
             <li>
-                <a href="#">
+                <a href="{{ route('rekap-sidangPwk.index') }}">
                     <i class="fa  fa-file-text"></i> <span>Rekapitulasi</span>
                 </a>
             </li>

@@ -1,4 +1,4 @@
-@extends('layouts.dashboard')
+@extends('layouts.firstpage')
 
 @section('content')
 
@@ -8,7 +8,7 @@
         <div class="col-12">
             <div class="box box-widget">
                 <div class="box-header with-border">
-                    <form action="{{ route('update-password') }}" method="post">@csrf
+                    <form action="{{ route('update.password') }}" method="post">@csrf
                         <div class="box-body">
                             <div class="alert alert-info alert-dismissible" style="display: none;">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -38,7 +38,7 @@
                         </div>
                         <div class="box-footer">
                             <button type="submit" class="btn btn-flat btn-success">Simpan</button>
-                            <a href="{{ route('dashboard') }}" class="btn btn-flat btn-danger">Batal</a>
+                            <a href="{{ url('/dashboard') }}" class="btn btn-flat btn-danger">Batal</a>
                         </div>
                         <!-- /.box-footer -->
                     </form>

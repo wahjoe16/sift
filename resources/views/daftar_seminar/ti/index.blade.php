@@ -9,17 +9,13 @@
             <div class="box box-primary">
                 <div class="box-header with-border">
                     <div class="btn-group">
-                        @if (is_null($dataSeminar) || $lastData->status == 2)
                         <a href="{{ route('seminar_ti.daftar') }}" class="btn btn-success btn-sm btn-flat"><i class="fa fa-upload"></i> Ajukan</a>
-                        @else
-                        <a href="#" class="btn btn-success btn-sm btn-flat disabled"><i class="fa fa-upload"></i> Ajukan</a>
-                        @endif
                     </div>
                 </div>
                 <div class="box-body table-responsive">
                     <table class="table table-striped table-bordered table-seminar">
                         <thead>
-                            <th>Tahun Ajaran</th>
+                            <th>Tahun Akademik</th>
                             <th>Semester</th>
                             <th>Dosen Pembimbing 1</th>
                             <th>Dosen Pembimbing 2</th>
